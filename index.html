@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en" data-optics="kiroshi" data-mode="night">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aryaman Sharma // NIGHT SHIFT</title>
+<meta name="description" content="NIGHT SHIFT — Aryaman Sharma's braindance portfolio. Applied AI from Sydney: football commentary, temporal RAG, insurance appeals, RL DJs, accessible hardware, restaurant margins.">
+<meta name="theme-color" content="#05070a">
+<meta property="og:title" content="Aryaman Sharma // NIGHT SHIFT">
+<meta property="og:description" content="Six gigs in applied AI. No filler. Every system shows its receipts.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aryaman Sharma">
+<meta property="og:url" content="https://aryamanironman.github.io/night-shift/">
+<meta property="og:image" content="https://aryamanironman.github.io/night-shift/assets/img/og-night.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Aryaman Sharma // NIGHT SHIFT">
+<meta name="twitter:description" content="Six gigs in applied AI. No filler. Every system shows its receipts.">
+<meta name="twitter:image" content="https://aryamanironman.github.io/night-shift/assets/img/og-night.jpg">
+<link rel="canonical" href="https://aryamanironman.github.io/night-shift/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2305070a'/%3E%3Cpath d='M8 52 24 12h8l16 40h-9l-3-9H20l-3 9H8zm14-16h12l-6-18-6 18z' fill='%23fcee0a'/%3E%3Crect x='46' y='12' width='10' height='3' fill='%2300e5ff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<noscript>
+<style>
+  .boot, .hud-corners, .bd-hud, .signal-hud, .reticle, .cursor-glow, .fx-scanlines, .fx-vignette,
+  .rail-tools, .menu-btn, .mobile-brand, .filter-bar, .build-toggle, .gig-foot .gig-open, .decrypt { display: none !important; }
+  .rail { display: none !important; }
+  .city-fallback { display: block !important; }
+  .hero { padding-top: 4.6rem; }
+  .nojs-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 140;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.8rem 1.1rem;
+    padding: 0.8rem var(--gutter);
+    background: rgba(5, 7, 10, 0.96);
+    border-bottom: 1px solid var(--line);
+  }
+  .nojs-nav a {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: var(--cyan);
+    text-decoration: none;
+  }
+</style>
+</noscript>
+<script>
+  try {
+    var o = localStorage.getItem('bd-optics');
+    if (o === 'thermal' || o === 'night' || o === 'kiroshi') document.documentElement.dataset.optics = o;
+    var m = localStorage.getItem('bd-mode');
+    if (m === 'day' || m === 'night') document.documentElement.dataset.mode = m;
+  } catch (e) {}
+  document.documentElement.classList.add('js');
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#gigs">Skip to the gigs</a>
+
+<noscript>
+  <nav class="nojs-nav" aria-label="Sections">
+    <a href="#operator">OPERATOR</a>
+    <a href="#gigs">GIGS</a>
+    <a href="#cyberware">CYBERWARE</a>
+    <a href="#record">LIFE PATH</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
+</noscript>
+
+<div class="world-bg" aria-hidden="true">
+  <div class="world-sky"></div>
+  <div class="world-sun"></div>
+  <div class="world-haze"></div>
+  <svg class="world-city" viewBox="0 0 1440 320" preserveAspectRatio="none">
+    <path d="M0 320V212h34v-34h28v34h22V154h46v58h30V124h44v88h32v-46h42v46h26V94h52v118h30v-28h44v28h34V144h48v68h30V60h56v142h32v-60h42v60h28V174h46v38h30V100h54v102h32v-40h44v40h30V154h50v58h34v-30h40v30h30V124h50v88h32V84h54v128h32v-40h44v40h30V204h34v116z"/>
+  </svg>
+  <div class="world-grid"></div>
+  <div class="world-wash"></div>
+</div>
+<div class="fx-scanlines" aria-hidden="true"></div>
+<div class="fx-vignette" aria-hidden="true"></div>
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+<div class="hud-corners" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<div class="reticle" id="reticle" aria-hidden="true"><i></i><i></i><b></b><span class="reticle-label" id="reticleLabel">SCAN</span></div>
+
+<aside class="rail" aria-label="Night Shift navigation">
+  <a class="rail-brand" href="#top" aria-label="Night Shift — back to top">
+    <span class="rail-mark" aria-hidden="true">AS</span>
+    <span class="rail-brand-text">NIGHT<br>SHIFT</span>
+  </a>
+
+  <nav class="rail-nav" aria-label="Sections">
+    <a href="#operator" data-nav="operator" aria-label="Operator">
+      <span class="rail-idx" aria-hidden="true">01</span><span class="rail-dot" aria-hidden="true"></span><span class="rail-label">OPERATOR</span>
+    </a>
+    <a href="#gigs" data-nav="gigs" aria-label="Gigs">
+      <span class="rail-idx" aria-hidden="true">02</span><span class="rail-dot" aria-hidden="true"></span><span class="rail-label">GIGS</span>
+    </a>
+    <a href="#cyberware" data-nav="cyberware" aria-label="Cyberware">
+      <span class="rail-idx" aria-hidden="true">03</span><span class="rail-dot" aria-hidden="true"></span><span class="rail-label">CYBERWARE</span>
+    </a>
+    <a href="#record" data-nav="record" aria-label="Life Path">
+      <span class="rail-idx" aria-hidden="true">04</span><span class="rail-dot" aria-hidden="true"></span><span class="rail-label">LIFE PATH</span>
+    </a>
+    <a href="#contact" data-nav="contact" aria-label="Contact">
+      <span class="rail-idx" aria-hidden="true">05</span><span class="rail-dot" aria-hidden="true"></span><span class="rail-label">CONTACT</span>
+    </a>
+  </nav>
+
+  <div class="rail-tools">
+    <button class="rail-btn" id="opticsBtn" type="button" aria-label="Cycle optics">
+      <span>OPTICS</span><b id="opticsLabel">KIROSHI</b>
+    </button>
+    <button class="rail-btn" id="audioBtn" type="button" aria-pressed="false" aria-label="Turn audio on">
+      <span>AUDIO</span><b id="audioLabel">OFF</b>
+    </button>
+    <button class="rail-btn" id="modeBtn" type="button" aria-pressed="false" aria-label="Switch to day mode">
+      <span>MODE</span><b id="modeLabel">NIGHT</b>
+    </button>
+    <a class="rail-cta" href="#contact">JACK<br>IN</a>
+  </div>
+</aside>
+
+<a class="mobile-brand brand" href="#top" aria-label="Night Shift — back to top">
+  <span class="brand-mark" aria-hidden="true">AS</span>
+  <span class="brand-text">NIGHT SHIFT <em>// BD-2077</em></span>
+</a>
+
+<button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu">
+  <span class="menu-btn-line" aria-hidden="true"></span>
+  <span class="menu-btn-line" aria-hidden="true"></span>
+  <span class="visually-hidden">Menu</span>
+</button>
+
+<div class="menu" id="menu" aria-hidden="true" inert>
+  <div class="menu-head"><span class="mono">NIGHT SHIFT // INDEX</span><span class="mono">SYDNEY 2077</span></div>
+  <nav class="menu-links" aria-label="Menu">
+    <a href="#operator" data-nav="operator"><span class="mono">01</span>OPERATOR</a>
+    <a href="#gigs" data-nav="gigs"><span class="mono">02</span>GIGS</a>
+    <a href="#cyberware" data-nav="cyberware"><span class="mono">03</span>CYBERWARE</a>
+    <a href="#record" data-nav="record"><span class="mono">04</span>LIFE PATH</a>
+    <a href="#contact" data-nav="contact"><span class="mono">05</span>CONTACT</a>
+  </nav>
+  <div class="menu-foot">
+    <button class="menu-hud-btn" id="menuOptics" type="button">OPTICS: KIROSHI</button>
+    <button class="menu-hud-btn" id="menuAudio" type="button">AUDIO: OFF</button>
+    <button class="menu-hud-btn" id="menuMode" type="button">MODE: NIGHT</button>
+    <a href="mailto:aryaman.sharma@student.uts.edu.au">EMAIL</a>
+    <a href="https://github.com/Aryamanironman" target="_blank" rel="noopener">GITHUB</a>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ═══════════════════  HERO / BRAINDANCE  ═══════════════════ -->
+  <section class="hero" id="top" aria-label="NIGHT SHIFT introduction">
+    <canvas id="city" aria-hidden="true"></canvas>
+    <div class="city-fallback" aria-hidden="true">
+      <div class="cf-sky"></div>
+      <div class="cf-moon">2077</div>
+      <div class="cf-buildings">
+        <i style="--x:4%;--w:7%;--h:38%"></i><i style="--x:12%;--w:9%;--h:55%"></i>
+        <i style="--x:22%;--w:6%;--h:44%"></i><i style="--x:29%;--w:10%;--h:66%"></i>
+        <i style="--x:40%;--w:7%;--h:50%"></i><i style="--x:48%;--w:11%;--h:74%"></i>
+        <i style="--x:60%;--w:8%;--h:58%"></i><i style="--x:69%;--w:10%;--h:80%"></i>
+        <i style="--x:80%;--w:7%;--h:52%"></i><i style="--x:88%;--w:9%;--h:68%"></i>
+      </div>
+      <div class="cf-grid"></div>
+    </div>
+    <div class="hero-scrim" aria-hidden="true"></div>
+
+    <div class="hero-grid wrap">
+      <div class="hero-copy">
+        <p class="hud-label"><span class="rec-dot" aria-hidden="true"></span>BRAINDANCE // BD-2077</p>
+        <h1 class="hero-title">
+          <span class="glitch" data-text="ARYAMAN">ARYAMAN</span>
+          <span class="glitch glitch--yellow" data-text="SHARMA">SHARMA</span>
+        </h1>
+        <p class="hero-role">NETRUNNER <span>//</span> APPLIED AI <span>//</span> SYDNEY</p>
+        <p class="hero-tagline">I build systems that make the call.</p>
+        <p class="hero-sub">Six gigs in applied AI: football commentary, temporal RAG, insurance appeals, RL DJs, accessible hardware, restaurant margins. No filler. Every system shows its receipts.</p>
+        <div class="hero-actions">
+          <a class="btn btn--primary" href="#gigs">JACK IN <span class="btn-arrow" aria-hidden="true">↘</span></a>
+          <a class="btn btn--ghost" href="#operator">READ DOSSIER</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel panel" aria-label="Subject status">
+        <div class="panel-head"><span>SUBJECT // LIVE FEED</span><span class="status-dot" aria-hidden="true"></span></div>
+        <div class="bio-scan">
+          <span class="scan-ring" aria-hidden="true"></span><span class="scan-ring scan-ring--2" aria-hidden="true"></span>
+          <span class="scan-ring scan-ring--3" aria-hidden="true"></span>
+          <span class="scan-cross" aria-hidden="true"></span>
+          <div class="holo-portrait">
+            <img class="holo-ghost" src="assets/img/aryaman-holo.webp" alt="" aria-hidden="true">
+            <img class="holo-img" src="assets/img/aryaman-holo.webp" alt="Holographic avatar of Aryaman Sharma" width="560" height="560">
+          </div>
+          <span class="scan-sweep"></span>
+        </div>
+        <p class="holo-caption mono">SUBJECT // ARYAMAN SHARMA</p>
+        <dl class="hero-stats">
+          <div><dt>ID</dt><dd>ARYAMAN-01</dd></div>
+          <div><dt>CLASS</dt><dd>NETRUNNER</dd></div>
+          <div><dt>BUILDS</dt><dd>20+</dd></div>
+          <div><dt>STATUS</dt><dd class="green">ONLINE</dd></div>
+        </dl>
+        <div class="panel-foot"><span>SYNC 98.4%</span><span class="blink" aria-hidden="true">▮</span></div>
+      </aside>
+    </div>
+
+    <div class="hero-foot wrap">
+      <div class="bd-scrub">
+        <span class="hud-label">SCROLL TO SCRUB</span>
+        <div class="scrub-line"><i id="heroScrub"></i></div>
+        <span class="mono" id="heroTime">00:00:00</span>
+      </div>
+      <p class="hud-label">SIGNAL // <span id="heroSignal">STABLE</span></p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════  DOSSIER  ═══════════════════ -->
+  <section class="section dossier" id="operator" aria-labelledby="dossierTitle">
+    <div class="wrap">
+      <header class="sec-head">
+        <span class="sec-code">01 // OPERATOR</span>
+        <h2 class="glitch" id="dossierTitle" data-text="DOSSIER">DOSSIER</h2>
+        <span class="sec-status">DECRYPTED</span>
+      </header>
+
+      <div class="dossier-grid">
+        <div class="dossier-card panel">
+          <div class="panel-head"><span>NCPD // PERSONNEL FILE</span><span>CONFIDENTIAL</span></div>
+          <div class="bio-scan bio-scan--card" aria-hidden="true">
+            <span class="scan-ring"></span><span class="scan-ring scan-ring--2"></span>
+            <span class="scan-cross"></span>
+            <div class="holo-portrait holo-portrait--card">
+              <img class="holo-ghost" src="assets/img/aryaman-holo.webp" alt="" aria-hidden="true">
+              <img class="holo-img" src="assets/img/aryaman-holo.webp" alt="" aria-hidden="true">
+            </div>
+            <span class="scan-sweep"></span>
+          </div>
+          <div class="dossier-id">
+            <h3>ARYAMAN<br>SHARMA</h3>
+            <p class="mono">APPLIED AI // UTS '27</p>
+          </div>
+          <dl class="stat-grid">
+            <div><dt>BASED</dt><dd>SYDNEY, AU</dd></div>
+            <div><dt>STUDYING</dt><dd>B. ARTIFICIAL INTELLIGENCE</dd></div>
+            <div><dt>BUILDS</dt><dd>20+ PUBLIC</dd></div>
+            <div><dt>CURRENT</dt><dd>FEIT AMBASSADOR</dd></div>
+          </dl>
+          <div class="panel-foot"><span>THREAT: CREATIVE</span><span>ID 2077-AS</span></div>
+        </div>
+
+        <div class="dossier-copy">
+          <p class="lede">I like the unglamorous middle of AI: the pipeline that turns raw footage into a fact sheet, the middleware that stops a retriever serving last year's answer, the evidence packet that survives a human reading it.</p>
+          <p>I'm a third-year Artificial Intelligence student at UTS. I build the whole thing — model, API, interface, demo — because that's where the interesting failures live. Around the work I run workshops, mentor incoming students, and represent the Faculty of Engineering and IT at open days.</p>
+          <p>Six gigs below. Each one had a hard part that couldn't be faked.</p>
+          <button class="decrypt" id="decrypt" type="button">
+            <span class="decrypt-prompt" aria-hidden="true">&gt;</span>
+            <span class="decrypt-text" id="decryptText">CLICK TO DECRYPT PERSONAL LOG</span>
+            <span class="cursor-block" aria-hidden="true">█</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════  GIGS  ═══════════════════ -->
+  <section class="section gigs" id="gigs" aria-labelledby="gigsTitle">
+    <div class="wrap">
+      <header class="sec-head">
+        <span class="sec-code">02 // GIG BOARD</span>
+        <h2 class="glitch" id="gigsTitle" data-text="SELECTED GIGS">SELECTED GIGS</h2>
+        <span class="sec-status" id="gigCount">06 / 06</span>
+      </header>
+
+      <div class="filter-bar" id="gigFilter" role="group" aria-label="Filter gigs">
+        <button class="filter-btn is-active" type="button" data-filter="all" aria-pressed="true">ALL</button>
+        <button class="filter-btn" type="button" data-filter="ai" aria-pressed="false">AI</button>
+        <button class="filter-btn" type="button" data-filter="sport" aria-pressed="false">SPORT</button>
+        <button class="filter-btn" type="button" data-filter="product" aria-pressed="false">PRODUCT</button>
+        <span class="filter-note mono">TRACE: NONE</span>
+      </div>
+
+      <div class="gig-grid" id="gigGrid">
+
+        <article class="gig panel" data-cat="sport" data-gig="matchcall">
+          <div class="gig-media">
+            <img src="assets/img/matchcall.webp" alt="Matchcall stadium board showing the commentary pipeline over a football pitch" width="1440" height="1000" loading="lazy" decoding="async">
+            <span class="gig-code mono">GIG-01</span>
+            <span class="gig-threat mono">THREAT 5/5</span>
+            <span class="gig-scan" aria-hidden="true"></span>
+          </div>
+          <div class="gig-body">
+            <div class="gig-top"><span class="mono">SPORT // COMPUTER VISION</span><span class="mono">REWARD: LIVE</span></div>
+            <h3>MATCHCALL</h3>
+            <p class="gig-claim">Commentary that can only say what it can prove.</p>
+            <p class="gig-desc">Drop in a broadcast clip. It spots the action, tracks players, builds a deterministic fact sheet, then writes and voices grounded commentary — or cuts a highlights reel per moment.</p>
+            <div class="gig-foot">
+              <button class="gig-open" type="button" data-open="matchcall">OPEN FILE ↗</button>
+              <a class="gig-link mono" href="https://github.com/Aryamanironman/matchcall" target="_blank" rel="noopener">REPOSITORY ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="gig panel" data-cat="ai" data-gig="lastword">
+          <div class="gig-media">
+            <div class="gig-visual" role="img" aria-label="Diagram: the same fact appears twice with different dates; lastword resolves to the newest version">
+              <span class="mono">SAME FACT // TWO DATES</span>
+              <span class="gv-row gv-old"><em class="mono">2024-03-12 // CHUNK 18</em><b>The store opens at 9am.</b></span>
+              <span class="gv-row gv-new"><em class="mono">2026-09-20 // CHUNK 04</em><b>The store opens at 7am.</b></span>
+              <span class="gv-res mono">LASTWORD → NEWEST WINS</span>
+            </div>
+            <span class="gig-code mono">GIG-02</span>
+            <span class="gig-threat mono">THREAT 4/5</span>
+            <span class="gig-scan" aria-hidden="true"></span>
+          </div>
+          <div class="gig-body">
+            <div class="gig-top"><span class="mono">AI // INFRASTRUCTURE</span><span class="mono">REWARD: REPO</span></div>
+            <h3>LASTWORD</h3>
+            <p class="gig-claim">The newest fact gets the last word.</p>
+            <p class="gig-desc">RAG keeps returning the old version of a fact even after re-indexing, because the model follows document order, not time. lastword sits between retriever and LLM and resolves the conflict.</p>
+            <div class="gig-foot">
+              <button class="gig-open" type="button" data-open="lastword">OPEN FILE ↗</button>
+              <a class="gig-link mono" href="https://github.com/Aryamanironman/lastword" target="_blank" rel="noopener">REPOSITORY ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="gig panel" data-cat="ai" data-gig="overturn">
+          <div class="gig-media">
+            <img src="assets/img/overturn.webp" alt="OVERTURN evidence packet scoring an insurance appeal at 84 out of 100" width="1600" height="900" loading="lazy" decoding="async">
+            <span class="gig-code mono">GIG-03</span>
+            <span class="gig-threat mono">THREAT 5/5</span>
+            <span class="gig-scan" aria-hidden="true"></span>
+          </div>
+          <div class="gig-body">
+            <div class="gig-top"><span class="mono">AI // AGENTS · HEALTH</span><span class="mono">REWARD: REPO</span></div>
+            <h3>OVERTURN</h3>
+            <p class="gig-claim">The denial, answered with evidence.</p>
+            <p class="gig-desc">An agent reads a health-insurance denial, the policy, the clinical record and the code tables. It finds the contradictions and drafts an appeal packet — including the one document it refuses to invent.</p>
+            <div class="gig-foot">
+              <button class="gig-open" type="button" data-open="overturn">OPEN FILE ↗</button>
+              <a class="gig-link mono" href="https://github.com/Aryamanironman/overturn" target="_blank" rel="noopener">REPOSITORY ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="gig panel" data-cat="ai" data-gig="moodmix">
+          <div class="gig-media">
+            <img src="assets/img/moodmix.webp" alt="MoodMix Silver Booth DJ interface with two decks, a mixer and a transition graph" width="1440" height="1000" loading="lazy" decoding="async">
+            <span class="gig-code mono">GIG-04</span>
+            <span class="gig-threat mono">THREAT 4/5</span>
+            <span class="gig-scan" aria-hidden="true"></span>
+          </div>
+          <div class="gig-body">
+            <div class="gig-top"><span class="mono">AI // RL · AUDIO</span><span class="mono">REWARD: REPO</span></div>
+            <h3>MOODMIX</h3>
+            <p class="gig-claim">An RL agent that actually DJs.</p>
+            <p class="gig-desc">A Gymnasium environment where the agent works a crossfader, three-band EQ, tempo sync and drum pads one beat at a time — scored on beat alignment, harmonic compatibility, transition shape and mood.</p>
+            <div class="gig-foot">
+              <button class="gig-open" type="button" data-open="moodmix">OPEN FILE ↗</button>
+              <a class="gig-link mono" href="https://github.com/Aryamanironman/moodmix-env" target="_blank" rel="noopener">REPOSITORY ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="gig panel" data-cat="product" data-gig="steadi">
+          <div class="gig-media">
+            <img src="assets/img/steadi.webp" alt="STEADI product site showing the anti-tremor cutlery handle and dock" width="1440" height="1000" loading="lazy" decoding="async">
+            <span class="gig-code mono">GIG-05</span>
+            <span class="gig-threat mono">THREAT 4/5</span>
+            <span class="gig-scan" aria-hidden="true"></span>
+          </div>
+          <div class="gig-body">
+            <div class="gig-top"><span class="mono">PRODUCT // ACCESSIBILITY</span><span class="mono">REWARD: LIVE</span></div>
+            <h3>STEADI</h3>
+            <p class="gig-claim">Independence, served daily.</p>
+            <p class="gig-desc">An anti-tremor cutlery handle for people with essential tremor and Parkinson's. I built the scroll-driven 3D product site, the SwiftUI companion demo, and a sourced five-year financial model.</p>
+            <div class="gig-foot">
+              <button class="gig-open" type="button" data-open="steadi">OPEN FILE ↗</button>
+              <a class="gig-link mono" href="https://aryamanironman.github.io/steadi-site/" target="_blank" rel="noopener">LIVE ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="gig panel" data-cat="product" data-gig="marginplate">
+          <div class="gig-media">
+            <img src="assets/img/marginplate.webp" alt="MarginPlate landing page showing a food-cost dashboard" width="1440" height="1000" loading="lazy" decoding="async">
+            <span class="gig-code mono">GIG-06</span>
+            <span class="gig-threat mono">THREAT 4/5</span>
+            <span class="gig-scan" aria-hidden="true"></span>
+          </div>
+          <div class="gig-body">
+            <div class="gig-top"><span class="mono">PRODUCT // FULL-STACK</span><span class="mono">REWARD: LIVE</span></div>
+            <h3>MARGINPLATE</h3>
+            <p class="gig-claim">A food-cost watchdog for independent restaurants.</p>
+            <p class="gig-desc">Photograph a supplier invoice. MarginPlate extracts line items, normalizes units, recomputes cost-per-plate across the menu, and flags suppliers whose prices have quietly crept up.</p>
+            <div class="gig-foot">
+              <button class="gig-open" type="button" data-open="marginplate">OPEN FILE ↗</button>
+              <a class="gig-link mono" href="https://marginplate-two.vercel.app" target="_blank" rel="noopener">LIVE ↗</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════  CYBERWARE  ═══════════════════ -->
+  <section class="section cyber" id="cyberware" aria-labelledby="cyberTitle">
+    <div class="wrap">
+      <header class="sec-head">
+        <span class="sec-code">03 // RIPPERDOC</span>
+        <h2 class="glitch" id="cyberTitle" data-text="CYBERWARE">CYBERWARE</h2>
+        <span class="sec-status">LOADOUT</span>
+      </header>
+
+      <div class="cyber-grid">
+        <div class="cyber-copy">
+          <p class="lede">Two builds.<br>Same netrunner.</p>
+          <p>I work both sides of the whiteboard: the research side, where the model has to be right, and the product side, where the whole thing has to ship. Swap the loadout to see what that looks like.</p>
+          <div class="build-toggle" id="buildToggle" role="group" aria-label="Build">
+            <button class="build-btn is-active" type="button" data-build="netrunner" aria-pressed="true">NETRUNNER</button>
+            <button class="build-btn" type="button" data-build="solo" aria-pressed="false">SOLO</button>
+          </div>
+          <p class="build-caption" id="buildCaption">Models, evaluation, data. The part that has to be true.</p>
+          <div class="spares">
+            <span class="spares-label mono">SPARE PARTS</span>
+            <span class="spare">TENSORFLOW</span><span class="spare">OPENCV</span><span class="spare">TYPESCRIPT</span>
+            <span class="spare">FIGMA</span><span class="spare">SQL</span><span class="spare">VERCEL</span>
+          </div>
+        </div>
+
+        <div class="loadout panel" id="loadout">
+          <div class="panel-head"><span>CYBERWARE // LOADOUT</span><span id="loadoutId">NR-01</span></div>
+          <div class="loadout-stage" id="loadoutStage">
+            <svg class="loadout-lines" id="loadoutLines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
+
+            <div class="core" aria-hidden="true">
+              <span class="core-hex"></span>
+              <span class="core-ring"></span>
+              <b>CORE</b>
+              <em id="coreName">PYTHON</em>
+            </div>
+
+            <div class="module" data-slot="0" style="--x:18%;--y:18%">
+              <span class="mod-id mono">SLOT 01</span>
+              <b class="mod-name">PYTORCH</b>
+              <span class="mod-tier" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+            </div>
+            <div class="module" data-slot="1" style="--x:82%;--y:18%">
+              <span class="mod-id mono">SLOT 02</span>
+              <b class="mod-name">NLP</b>
+              <span class="mod-tier" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+            </div>
+            <div class="module" data-slot="2" style="--x:88%;--y:62%">
+              <span class="mod-id mono">SLOT 03</span>
+              <b class="mod-name">RL</b>
+              <span class="mod-tier" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+            </div>
+            <div class="module" data-slot="3" style="--x:50%;--y:87%">
+              <span class="mod-id mono">SLOT 04</span>
+              <b class="mod-name">RAG</b>
+              <span class="mod-tier" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+            </div>
+            <div class="module" data-slot="4" style="--x:12%;--y:62%">
+              <span class="mod-id mono">SLOT 05</span>
+              <b class="mod-name">LLM AGENTS</b>
+              <span class="mod-tier" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+            </div>
+          </div>
+          <div class="loadout-foot">
+            <span class="mono">SYNC</span>
+            <div class="sync"><i id="syncBar"></i></div>
+            <span class="mono" id="syncValue">98.4%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════  LIFE PATH  ═══════════════════ -->
+  <section class="section life" id="record" aria-labelledby="lifeTitle">
+    <div class="wrap">
+      <header class="sec-head">
+        <span class="sec-code">04 // LIFE PATH</span>
+        <h2 class="glitch" id="lifeTitle" data-text="THE RECORD">THE RECORD</h2>
+        <span class="sec-status">MEMORY FRAGMENTS</span>
+      </header>
+
+      <div class="life-grid">
+        <div class="life-rail" aria-hidden="true">
+          <span class="rail-line"></span>
+          <span class="rail-head" id="lifeHead"><i></i>BD</span>
+        </div>
+
+        <div class="life-list">
+          <article class="memory panel">
+            <span class="mem-time mono">2026 — NOW</span>
+            <div class="mem-icon" aria-hidden="true"><i></i></div>
+            <div class="mem-body">
+              <h3>FEIT STUDENT AMBASSADOR</h3>
+              <p>UTS. Open days, campus tours and high-school outreach for 300+ prospective students.</p>
+            </div>
+            <span class="mem-tag mono">UTS</span>
+          </article>
+
+          <article class="memory panel">
+            <span class="mem-time mono">2024 — NOW</span>
+            <div class="mem-icon" aria-hidden="true"><i></i></div>
+            <div class="mem-body">
+              <h3>STUDENT SOCIETY LEADER</h3>
+              <p>Robotics networking night for 150+, monthly programming workshops for 30–40, DinoSoc welcome week and AI Society events.</p>
+            </div>
+            <span class="mem-tag mono">SOCIETIES</span>
+          </article>
+
+          <article class="memory panel">
+            <span class="mem-time mono">2024 — NOW</span>
+            <div class="mem-icon" aria-hidden="true"><i></i></div>
+            <div class="mem-body">
+              <h3>CUSTOMER SERVICE &amp; TRAINING</h3>
+              <p>Oporto, Minto. Trained new staff and held service standards together in a high-pressure store.</p>
+            </div>
+            <span class="mem-tag mono">OPORTO</span>
+          </article>
+
+          <article class="memory panel">
+            <span class="mem-time mono">2024 — 2027</span>
+            <div class="mem-icon" aria-hidden="true"><i></i></div>
+            <div class="mem-body">
+              <h3>BACHELOR OF ARTIFICIAL INTELLIGENCE</h3>
+              <p>University of Technology Sydney. Major in AI; member of the Engineering, AI, Robotics and Programming societies.</p>
+            </div>
+            <span class="mem-tag mono">EDUCATION</span>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════  CONTACT  ═══════════════════ -->
+  <section class="contact" id="contact" aria-labelledby="contactTitle">
+    <div class="contact-bg" aria-hidden="true">2077</div>
+    <div class="wrap">
+      <span class="sec-code">05 // CONTACT</span>
+      <h2 class="contact-title" id="contactTitle">
+        <span class="glitch" data-text="INCOMING">INCOMING</span>
+        <span class="contact-title-2">CALL</span>
+      </h2>
+      <p class="contact-sub">I'm looking for AI/ML internships and graduate roles where the work actually ships. If you have a hard problem and a deadline, I'm interested.</p>
+
+      <div class="contact-grid">
+        <div class="terminal panel">
+          <div class="panel-head"><span>SECURE LINE // OUTBOUND</span><span class="status-dot" aria-hidden="true"></span></div>
+          <pre><span class="prompt">&gt;</span> EMAIL      aryaman.sharma@student.uts.edu.au
+<span class="prompt">&gt;</span> GITHUB     github.com/Aryamanironman
+<span class="prompt">&gt;</span> LINKEDIN   /in/aryaman-sharma-734220353
+<span class="prompt">&gt;</span> STATUS     OPEN FOR AI/ML INTERNSHIPS
+<span class="prompt">&gt;</span> <span class="cursor-block" aria-hidden="true">█</span></pre>
+        </div>
+
+        <div class="contact-actions">
+          <a class="btn btn--primary btn--big" href="mailto:aryaman.sharma@student.uts.edu.au">ESTABLISH LINK <span class="btn-arrow" aria-hidden="true">↗</span></a>
+          <div class="contact-links">
+            <a href="https://github.com/Aryamanironman" target="_blank" rel="noopener">GITHUB ↗</a>
+            <a href="https://www.linkedin.com/in/aryaman-sharma-734220353" target="_blank" rel="noopener">LINKEDIN ↗</a>
+            <a href="mailto:aryaman.sharma@student.uts.edu.au">EMAIL ↗</a>
+          </div>
+          <button class="btn btn--ghost" id="reboot" type="button">REBOOT SYSTEM <span class="btn-arrow" aria-hidden="true">↑</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-inner">
+    <span class="mono">NIGHT SHIFT // SYDNEY 2077</span>
+    <span class="mono">© <span id="year">2026</span> ARYAMAN SHARMA</span>
+    <span class="mono">ORIGINAL HOMAGE · NOT AFFILIATED WITH CD PROJEKT RED</span>
+  </div>
+</footer>
+
+<div class="bd-hud" aria-hidden="true">
+  <span class="hud-label">BD</span>
+  <span class="mono" id="bdTime">00:00:00</span>
+  <div class="bd-bar"><i id="bdBar"></i></div>
+  <span class="hud-label" id="bdState">REC</span>
+</div>
+
+<div class="signal-hud" aria-hidden="true">
+  <span class="hud-label">SIGNAL</span>
+  <div class="signal-bars" id="signalBars">
+    <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+  </div>
+  <span class="mono" id="signalValue">98%</span>
+</div>
+
+<dialog class="shard-dialog" id="shardDialog" aria-label="Gig details">
+  <button class="shard-close" id="shardClose" type="button">CLOSE [ESC]</button>
+  <div class="shard-inner" id="shardContent"></div>
+</dialog>
+
+<div class="boot" id="boot" hidden aria-label="System boot">
+  <div class="boot-box">
+    <div class="boot-head"><span>NIGHT SHIFT OS</span><span>v2.077</span></div>
+    <pre class="boot-lines"><span>&gt; NEURAL HANDSHAKE ............ <b>OK</b></span>
+<span>&gt; LOADING BRAINDANCE .......... <b>BD-2077</b></span>
+<span>&gt; OPTICS ..................... <b>KIROSHI</b></span>
+<span>&gt; SIGNAL ..................... <b>STABLE</b></span>
+<span>&gt; WELCOME BACK, NETRUNNER.</span></pre>
+    <div class="boot-bar"><i></i></div>
+    <button class="boot-skip" id="bootSkip" type="button">SKIP [ESC]</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"
+  }
+}
+</script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
